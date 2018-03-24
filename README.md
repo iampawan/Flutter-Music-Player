@@ -2,6 +2,10 @@
 
 First Open Source Flutter based Beautiful Material Design Music Player(Online Radio will be added soon.)
 
+# Demo App
+
+[Play Store BETA](https://play.google.com/store/apps/details?id=com.mtechviral.fluttermusicplayer)
+
 ## Features
 
 * [x] Android (iOS Coming Soon)
