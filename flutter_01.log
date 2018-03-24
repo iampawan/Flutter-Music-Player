@@ -1,0 +1,103 @@
+Flutter crash report; please file at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter packages get
+
+## exception
+
+YamlException: Error on line 22, column 1: Expected ':'.
+# For information on the generic Dart part of this file, see the
+^
+
+```
+#0      Scanner._staleSimpleKeys (package:yaml/src/scanner.dart:491)
+#1      Scanner._fetchMoreTokens (package:yaml/src/scanner.dart:325)
+#2      Scanner.peek (package:yaml/src/scanner.dart:317)
+#3      Parser._parseBlockMappingKey (package:yaml/src/parser.dart:418)
+#4      Parser._stateMachine (package:yaml/src/parser.dart:86)
+#5      Parser.parse (package:yaml/src/parser.dart:47)
+#6      Loader._loadMapping (package:yaml/src/loader.dart:171)
+#7      Loader._loadNode (package:yaml/src/loader.dart:86)
+#8      Loader._loadMapping (package:yaml/src/loader.dart:165)
+#9      Loader._loadNode (package:yaml/src/loader.dart:86)
+#10     Loader._loadMapping (package:yaml/src/loader.dart:165)
+#11     Loader._loadNode (package:yaml/src/loader.dart:86)
+#12     Loader._loadDocument (package:yaml/src/loader.dart:62)
+#13     Loader.load (package:yaml/src/loader.dart:54)
+#14     loadYamlDocument (package:yaml/yaml.dart:51)
+#15     loadYamlNode (package:yaml/yaml.dart:42)
+#16     loadYaml (package:yaml/yaml.dart:34)
+#17     _pluginFromPubspec (package:flutter_tools/src/plugins.dart:52)
+#18     _findPlugins.<anonymous closure> (package:flutter_tools/src/plugins.dart:75)
+#19     _HashVMBase&MapMixin&&_LinkedHashMapMixin.forEach (dart:collection-patch/dart:collection/compact_hash.dart:361)
+#20     _findPlugins (package:flutter_tools/src/plugins.dart:73)
+#21     injectPlugins (package:flutter_tools/src/plugins.dart:238)
+#22     FlutterProject.ensureReadyForPlatformSpecificTooling (package:flutter_tools/src/project.dart:62)
+#23     PackagesGetCommand.runCommand (package:flutter_tools/src/commands/packages.dart:80)
+<asynchronous suspension>
+#24     FlutterCommand.verifyThenRunCommand (package:flutter_tools/src/runner/flutter_command.dart:290)
+<asynchronous suspension>
+#25     FlutterCommand.run (package:flutter_tools/src/runner/flutter_command.dart:228)
+<asynchronous suspension>
+#26     CommandRunner.runCommand (package:args/command_runner.dart:194)
+<asynchronous suspension>
+#27     FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:286)
+<asynchronous suspension>
+#28     CommandRunner.run.<anonymous closure> (package:args/command_runner.dart:109)
+#29     new Future.sync (dart:async/future.dart:222)
+#30     CommandRunner.run (package:args/command_runner.dart:109)
+#31     FlutterCommandRunner.run (package:flutter_tools/src/runner/flutter_command_runner.dart:166)
+#32     run.<anonymous closure> (package:flutter_tools/runner.dart:90)
+<asynchronous suspension>
+#33     AppContext._run (package:flutter_tools/src/base/context.dart:76)
+<asynchronous suspension>
+#34     AppContext.runInZone.<anonymous closure> (package:flutter_tools/src/base/context.dart:66)
+#35     _rootRun (dart:async/zone.dart:1126)
+#36     _CustomZone.run (dart:async/zone.dart:1023)
+#37     runZoned (dart:async/zone.dart:1501)
+#38     AppContext.runInZone (package:flutter_tools/src/base/context.dart:65)
+#39     run (package:flutter_tools/runner.dart:61)
+<asynchronous suspension>
+#40     main (package:flutter_tools/executable.dart:48)
+<asynchronous suspension>
+#41     main (file:///Users/pawankumar/Desktop/flutter/flutter/packages/flutter_tools/bin/flutter_tools.dart:16)
+#42     _startIsolate.<anonymous closure> (dart:isolate-patch/dart:isolate/isolate_patch.dart:277)
+#43     _RawReceivePortImpl._handleMessage (dart:isolate-patch/dart:isolate/isolate_patch.dart:165)
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel beta, v0.1.5, on Mac OS X 10.13.3 17D102, locale en-IN)
+    • Flutter version 0.1.5 at /Users/pawankumar/Desktop/flutter/flutter
+    • Framework revision 3ea4d06340 (4 weeks ago), 2018-02-22 11:12:39 -0800
+    • Engine revision ead227f118
+    • Dart version 2.0.0-dev.28.0.flutter-0b4f01f759
+
+[✓] Android toolchain - develop for Android devices (Android SDK 27.0.3)
+    • Android SDK at /Users/pawankumar/Library/Android/sdk
+    • Android NDK location not configured (optional; useful for native profiling support)
+    • Platform android-27, build-tools 27.0.3
+    • Java binary at: /Applications/Android Studio.app/Contents/jre/jdk/Contents/Home/bin/java
+    • Java version OpenJDK Runtime Environment (build 1.8.0_152-release-915-b08)
+
+[✓] iOS toolchain - develop for iOS devices (Xcode 9.2)
+    • Xcode at /Applications/Xcode.app/Contents/Developer
+    • Xcode 9.2, Build version 9C40b
+    • ios-deploy 1.9.2
+    • CocoaPods version 1.3.1
+
+[✓] Android Studio (version 3.0)
+    • Android Studio at /Applications/Android Studio.app/Contents
+    • Java version OpenJDK Runtime Environment (build 1.8.0_152-release-915-b08)
+
+[✓] IntelliJ IDEA Ultimate Edition (version 2017.3.4)
+    • Flutter plugin version 22.2.2
+    • Dart plugin version 173.4548.30
+
+[✓] Connected devices (1 available)
+    • ONEPLUS A5010 • 25c7b120 • android-arm64 • Android 8.0.0 (API 26)
+
+• No issues found!
+```
