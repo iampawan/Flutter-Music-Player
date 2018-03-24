@@ -5,7 +5,6 @@
          flutter needs it to communicate with the running application
          to allow setting breakpoints, to provide hot reload, etc.
     -->
-    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <!-- io.flutter.app.FlutterApplication is an android.app.Application that
@@ -15,7 +14,7 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="music_finder_example"
+        android:label="Flutter Music Player"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
