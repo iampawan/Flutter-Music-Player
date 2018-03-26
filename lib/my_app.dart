@@ -10,7 +10,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<Song> _songs;
   SongData songData;
   bool _isLoading = true;
 
@@ -33,7 +32,6 @@ class _MyAppState extends State<MyApp> {
     var songs;
     try {
       songs = await MusicFinder.allSongs();
-      songData = new SongData(new List.from(songs));
     } catch (e) {
       print("Failed to get songs: '${e.message}'.");
     }
@@ -43,9 +41,9 @@ class _MyAppState extends State<MyApp> {
     // message was in flight, we want to discard the reply rather than calling
     // setState to update our non-existent appearance.
     if (!mounted) return;
-    _songs = songData.songs;
 
     setState(() {
+      songData = new SongData(new List.from(songs));
       _isLoading = false;
     });
   }

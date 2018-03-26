@@ -91,7 +91,7 @@ packages:
       name: flute_music_player
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.1"
+    version: "0.0.3"
   flutter:
     dependency: "direct main"
     description: flutter

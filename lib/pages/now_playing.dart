@@ -187,25 +187,18 @@ class _NowPlayingState extends State<NowPlaying> {
           new Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              new InkWell(
-                child: new Chip(
-                  label: new Text(
-                    isMuted ? "Unmute" : "Mute",
-                    style: Theme.of(context).primaryTextTheme.caption,
-                  ),
-                  avatar: isMuted
+              new IconButton(
+                  icon: isMuted
                       ? new Icon(
                           Icons.headset,
                           color: Theme.of(context).unselectedWidgetColor,
                         )
                       : new Icon(Icons.headset_off,
                           color: Theme.of(context).unselectedWidgetColor),
-                  backgroundColor: Theme.of(context).primaryColor,
-                ),
-                onTap: () {
-                  mute(!isMuted);
-                },
-              ),
+                  color: Theme.of(context).primaryColor,
+                  onPressed: () {
+                    mute(!isMuted);
+                  }),
               // new IconButton(
               //     onPressed: () => mute(true),
               //     icon: new Icon(Icons.headset_off),
