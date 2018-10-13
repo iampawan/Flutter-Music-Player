@@ -1,8 +1,8 @@
 import 'package:flute_example/data/song_data.dart';
 import 'package:flute_example/pages/root_page.dart';
 import 'package:flute_example/widgets/mp_inherited.dart';
-import 'package:flutter/material.dart';
 import 'package:flute_music_player/flute_music_player.dart';
+import 'package:flutter/material.dart';
 
 class MyApp extends StatefulWidget {
   @override
@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
     if (!mounted) return;
 
     setState(() {
-      songData = new SongData(new List.from(songs));
+      songData = new SongData((songs));
       _isLoading = false;
     });
   }
