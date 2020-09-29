@@ -26,6 +26,13 @@ First Open Source Flutter based Beautiful Material Design Music Player(Online Ra
 * Supported formats
 
   * [Android](https://developer.android.com/guide/topics/media/media-formats.html)
+  
+### Run Flutter Music Player
+###### Open project path in the terminal and type
+```
+flutter pub get
+flutter run
+```
 
 ### Show some :heart: and star the repo to support the project
 
