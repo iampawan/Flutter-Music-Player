@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'dart:ui';
-import 'package:flute_example/data/song_data.dart';
-import 'package:flute_example/widgets/mp_album_ui.dart';
-import 'package:flute_example/widgets/mp_blur_filter.dart';
-import 'package:flute_example/widgets/mp_blur_widget.dart';
-import 'package:flute_example/widgets/mp_control_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flute_music_player/flute_music_player.dart';
+import 'package:music_player/data/song_data.dart';
+import 'package:music_player/widgets/mp_album_ui.dart';
+import 'package:music_player/widgets/mp_blur_filter.dart';
+import 'package:music_player/widgets/mp_blur_widget.dart';
+import 'package:music_player/widgets/mp_control_button.dart';
 
 enum PlayerState { stopped, playing, paused }
 
@@ -148,7 +148,7 @@ class _NowPlayingState extends State<NowPlaying> {
             children: <Widget>[
               new Text(
                 song.title,
-                style: Theme.of(context).textTheme.headline,
+                style: Theme.of(context).textTheme.headline4,
               ),
               new Text(
                 song.artist,

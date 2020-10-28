@@ -1,9 +1,9 @@
 import 'dart:io';
-import 'package:flute_example/data/song_data.dart';
-import 'package:flute_example/pages/now_playing.dart';
-import 'package:flute_example/widgets/mp_circle_avatar.dart';
-import 'package:flute_example/widgets/mp_inherited.dart';
 import 'package:flutter/material.dart';
+import 'package:music_player/data/song_data.dart';
+import 'package:music_player/pages/now_playing.dart';
+import 'package:music_player/widgets/mp_circle_avatar.dart';
+import 'package:music_player/widgets/mp_inherited.dart';
 
 class MPListView extends StatelessWidget {
   final List<MaterialColor> _colors = Colors.primaries;

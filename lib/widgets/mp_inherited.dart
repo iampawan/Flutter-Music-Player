@@ -1,5 +1,5 @@
-import 'package:flute_example/data/song_data.dart';
 import 'package:flutter/material.dart';
+import 'package:music_player/data/song_data.dart';
 
 class MPInheritedWidget extends InheritedWidget {
   final SongData songData;
@@ -9,11 +9,11 @@ class MPInheritedWidget extends InheritedWidget {
       : super(child: child);
 
   static MPInheritedWidget of(BuildContext context) {
-    return context.inheritFromWidgetOfExactType(MPInheritedWidget);
+    return context.dependOnInheritedWidgetOfExactType();
   }
 
   @override
   bool updateShouldNotify(MPInheritedWidget oldWidget) =>
-      // TODO: implement updateShouldNotify
+      // TOD: implement updateShouldNotify
       songData != oldWidget.songData || isLoading != oldWidget.isLoading;
 }
