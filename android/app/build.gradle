@@ -22,6 +22,7 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     compileSdkVersion 27
+    buildToolsVersion "23.0.1"
 
     lintOptions {
         disable 'InvalidPackage'
