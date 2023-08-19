@@ -1,10 +1,12 @@
-import 'package:flute_music_player/flute_music_player.dart';
+
 import 'dart:math';
+
+import 'package:flute_music_player/flute_music_player.dart';
 
 class SongData {
   List<Song> _songs;
   int _currentSongIndex = -1;
-  MusicFinder musicFinder;
+  MusicFinder? musicFinder;
   SongData(this._songs) {
     musicFinder = new MusicFinder();
   }
@@ -23,7 +25,7 @@ class SongData {
     if (_currentSongIndex < length) {
       _currentSongIndex++;
     }
-    if (_currentSongIndex >= length) return null;
+    if (_currentSongIndex >= length) return Song.fromMap( {});
     return _songs[_currentSongIndex];
   }
 
@@ -36,9 +38,9 @@ class SongData {
     if (_currentSongIndex > 0) {
       _currentSongIndex--;
     }
-    if (_currentSongIndex < 0) return null;
+    if (_currentSongIndex < 0) return Song.fromMap( {});
     return _songs[_currentSongIndex];
   }
 
-  MusicFinder get audioPlayer => musicFinder;
+  MusicFinder get audioPlayer => musicFinder!;
 }

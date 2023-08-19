@@ -14,8 +14,8 @@ class AlbumUI extends StatefulWidget {
 }
 
 class AlbumUIState extends State<AlbumUI> with SingleTickerProviderStateMixin {
-  Animation<double> animation;
-  AnimationController animationController;
+  Animation<double>? animation;
+  AnimationController? animationController;
 
   @override
   initState() {
@@ -23,15 +23,15 @@ class AlbumUIState extends State<AlbumUI> with SingleTickerProviderStateMixin {
     animationController = new AnimationController(
         vsync: this, duration: new Duration(seconds: 1));
     animation = new CurvedAnimation(
-        parent: animationController, curve: Curves.elasticOut);
-    animation.addListener(() => this.setState(() {}));
-    animationController.forward();
+        parent: animationController!, curve: Curves.elasticOut);
+    animation!.addListener(() => this.setState(() {}));
+    animationController!.forward();
   }
 
   @override
   void dispose() {
     super.dispose();
-    animationController.dispose();
+    animationController!.dispose();
   }
 
   @override
@@ -62,7 +62,7 @@ class AlbumUIState extends State<AlbumUI> with SingleTickerProviderStateMixin {
     );
 
     return new SizedBox.fromSize(
-      size: new Size(animation.value * 250.0, animation.value * 250.0),
+      size: new Size(animation!.value * 250.0, animation!.value * 250.0),
       child: new Stack(
         children: <Widget>[
           myHero,
@@ -79,8 +79,8 @@ class AlbumUIState extends State<AlbumUI> with SingleTickerProviderStateMixin {
                 new LinearProgressIndicator(
                   value: widget.position != null &&
                           widget.position.inMilliseconds > 0
-                      ? (widget.position?.inMilliseconds?.toDouble() ?? 0.0) /
-                          (widget.duration?.inMilliseconds?.toDouble() ?? 0.0)
+                      ? (widget.position.inMilliseconds.toDouble() ) /
+                          (widget.duration.inMilliseconds.toDouble() )
                       : 0.0,
                   valueColor:
                       new AlwaysStoppedAnimation(Theme.of(context).cardColor),

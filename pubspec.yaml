@@ -2,13 +2,17 @@ name: flute_example
 description: Demonstrates how to use the flute_music_player plugin.
 
 dependencies:
+  flute_music_player: ^0.0.6
   flutter:
     sdk: flutter
 
+environment:
+  sdk: '>=2.19.5 <3.0.0'
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^0.1.0
-  flute_music_player: ^0.0.6
+  #cupertino_icons: ^1.0.2
+  
 
 dev_dependencies:
   flutter_test:

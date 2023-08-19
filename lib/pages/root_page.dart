@@ -14,15 +14,15 @@ class RootPage extends StatelessWidget {
           context,
           new MaterialPageRoute(
               builder: (context) => new NowPlaying(
-                    rootIW.songData,
+                    rootIW!.songData,
                     s,
-                    nowPlayTap: nowPlayTap,
+                     nowPlayTap,
                   )));
     }
 
     //Shuffle Songs and goto now playing page
     void shuffleSongs() {
-      goToNowPlaying(rootIW.songData.randomSong);
+      goToNowPlaying(rootIW!.songData.randomSong);
     }
 
     return new Scaffold(
@@ -35,7 +35,7 @@ class RootPage extends StatelessWidget {
               child: new InkWell(
                   child: new Text("Now Playing"),
                   onTap: () => goToNowPlaying(
-                        rootIW.songData.songs[
+                        rootIW!.songData.songs[
                             (rootIW.songData.currentIndex == null ||
                                     rootIW.songData.currentIndex < 0)
                                 ? 0
@@ -47,7 +47,7 @@ class RootPage extends StatelessWidget {
         ],
       ),
       // drawer: new MPDrawer(),
-      body: rootIW.isLoading
+      body: rootIW!.isLoading
           ? new Center(child: new CircularProgressIndicator())
           : new Scrollbar(child: new MPListView()),
       floatingActionButton: new FloatingActionButton(
