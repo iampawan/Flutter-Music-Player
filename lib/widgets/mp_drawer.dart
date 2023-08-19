@@ -10,7 +10,7 @@ class MPDrawer extends StatefulWidget {
 }
 
 class MPDrawerState extends State<MPDrawer> {
-  bool dark;
+  bool? dark;
   @override
   initState() {
     super.initState();
@@ -18,7 +18,7 @@ class MPDrawerState extends State<MPDrawer> {
 
   @override
   Widget build(BuildContext context) {
-    var rootIW = MPInheritedWidget.of(context).songData;
+    var rootIW = MPInheritedWidget.of(context)!.songData;
     var cI = rootIW.currentIndex;
     Song song =
         rootIW.songs[((cI == null) || (cI < 0)) ? 0 : rootIW.currentIndex];

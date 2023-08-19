@@ -14,18 +14,18 @@ class NowPlaying extends StatefulWidget {
   final Song _song;
   final SongData songData;
   final bool nowPlayTap;
-  NowPlaying(this.songData, this._song, {this.nowPlayTap});
+  NowPlaying(this.songData, this._song, this.nowPlayTap);
 
   @override
   _NowPlayingState createState() => new _NowPlayingState();
 }
 
 class _NowPlayingState extends State<NowPlaying> {
-  MusicFinder audioPlayer;
-  Duration duration;
-  Duration position;
-  PlayerState playerState;
-  Song song;
+  MusicFinder? audioPlayer;
+  Duration? duration;
+  Duration? position;
+  PlayerState? playerState;
+  Song? song;
 
   get isPlaying => playerState == PlayerState.playing;
   get isPaused => playerState == PlayerState.paused;
@@ -64,28 +64,28 @@ class _NowPlayingState extends State<NowPlaying> {
           stop();
         }
       }
-      play(song);
+      play(song!);
       //  else {
       //   widget._song;
       //   playerState = PlayerState.playing;
       // }
     });
-    audioPlayer.setDurationHandler((d) => setState(() {
+    audioPlayer?.setDurationHandler((d) => setState(() {
           duration = d;
         }));
 
-    audioPlayer.setPositionHandler((p) => setState(() {
+    audioPlayer?.setPositionHandler((p) => setState(() {
           position = p;
         }));
 
-    audioPlayer.setCompletionHandler(() {
+    audioPlayer?.setCompletionHandler(() {
       onComplete();
       setState(() {
         position = duration;
       });
     });
 
-    audioPlayer.setErrorHandler((msg) {
+    audioPlayer?.setErrorHandler((msg) {
       setState(() {
         playerState = PlayerState.stopped;
         duration = new Duration(seconds: 0);
@@ -96,7 +96,7 @@ class _NowPlayingState extends State<NowPlaying> {
 
   Future play(Song s) async {
     if (s != null) {
-      final result = await audioPlayer.play(s.uri, isLocal: true);
+      final result = await audioPlayer?.play(s.uri, isLocal: true);
       if (result == 1)
         setState(() {
           playerState = PlayerState.playing;
@@ -106,12 +106,12 @@ class _NowPlayingState extends State<NowPlaying> {
   }
 
   Future pause() async {
-    final result = await audioPlayer.pause();
+    final result = await audioPlayer?.pause();
     if (result == 1) setState(() => playerState = PlayerState.paused);
   }
 
   Future stop() async {
-    final result = await audioPlayer.stop();
+    final result = await audioPlayer?.stop();
     if (result == 1)
       setState(() {
         playerState = PlayerState.stopped;
@@ -132,7 +132,7 @@ class _NowPlayingState extends State<NowPlaying> {
   }
 
   Future mute(bool muted) async {
-    final result = await audioPlayer.mute(muted);
+    final result = await audioPlayer?.mute(muted);
     if (result == 1)
       setState(() {
         isMuted = muted;
@@ -147,11 +147,11 @@ class _NowPlayingState extends State<NowPlaying> {
           new Column(
             children: <Widget>[
               new Text(
-                song.title,
-                style: Theme.of(context).textTheme.headline,
+                song!.title,
+                style: Theme.of(context).textTheme.headlineLarge,
               ),
               new Text(
-                song.artist,
+                song!.artist,
                 style: Theme.of(context).textTheme.caption,
               ),
               new Padding(
@@ -168,11 +168,11 @@ class _NowPlayingState extends State<NowPlaying> {
           duration == null
               ? new Container()
               : new Slider(
-                  value: position?.inMilliseconds?.toDouble() ?? 0,
+                  value: position?.inMilliseconds.toDouble() ?? 0,
                   onChanged: (double value) =>
-                      audioPlayer.seek((value / 1000).roundToDouble()),
+                      audioPlayer?.seek((value / 1000).roundToDouble()),
                   min: 0.0,
-                  max: duration.inMilliseconds.toDouble()),
+                  max: duration!.inMilliseconds.toDouble()),
           new Row(mainAxisSize: MainAxisSize.min, children: [
             new Text(
                 position != null
@@ -215,7 +215,7 @@ class _NowPlayingState extends State<NowPlaying> {
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
-          new AlbumUI(song, duration, position),
+          new AlbumUI(song!, duration!, position!),
           new Material(
             child: _buildPlayer(),
             color: Colors.transparent,
@@ -231,7 +231,7 @@ class _NowPlayingState extends State<NowPlaying> {
         color: Theme.of(context).backgroundColor,
         child: new Stack(
           fit: StackFit.expand,
-          children: <Widget>[blurWidget(song), blurFilter(), playerUI],
+          children: <Widget>[blurWidget(song!), blurFilter(), playerUI],
         ),
       ),
     );

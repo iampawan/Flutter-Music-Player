@@ -10,7 +10,7 @@ class MPListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final rootIW = MPInheritedWidget.of(context);
-    SongData songData = rootIW.songData;
+    SongData songData = rootIW!.songData;
     return new ListView.builder(
       itemCount: songData.songs.length,
       itemBuilder: (context, int index) {
@@ -22,7 +22,7 @@ class MPListView extends StatelessWidget {
         return new ListTile(
           dense: false,
           leading: new Hero(
-            child: avatar(artFile, s.title, color),
+            child: avatar(artFile!, s.title, color),
             tag: s.title,
           ),
           title: new Text(s.title),
@@ -35,7 +35,7 @@ class MPListView extends StatelessWidget {
             Navigator.push(
                 context,
                 new MaterialPageRoute(
-                    builder: (context) => new NowPlaying(songData, s)));
+                    builder: (context) => new NowPlaying(songData, s, false)));
           },
         );
       },

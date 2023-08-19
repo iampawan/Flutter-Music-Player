@@ -8,8 +8,8 @@ class MPInheritedWidget extends InheritedWidget {
   const MPInheritedWidget(this.songData, this.isLoading, child)
       : super(child: child);
 
-  static MPInheritedWidget of(BuildContext context) {
-    return context.inheritFromWidgetOfExactType(MPInheritedWidget);
+  static MPInheritedWidget? of(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<MPInheritedWidget>();
   }
 
   @override

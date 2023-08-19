@@ -10,7 +10,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  SongData songData;
+  SongData? songData;
   bool _isLoading = true;
 
   @override
@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void dispose() {
     super.dispose();
-    songData.audioPlayer.stop();
+    songData?.audioPlayer.stop();
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
     try {
       songs = await MusicFinder.allSongs();
     } catch (e) {
-      print("Failed to get songs: '${e.message}'.");
+      print("Failed to get songs: $e.");
     }
 
     print(songs);
@@ -50,6 +50,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return new MPInheritedWidget(songData, _isLoading, new RootPage());
+    return new MPInheritedWidget(songData!, _isLoading, new RootPage());
   }
 }
