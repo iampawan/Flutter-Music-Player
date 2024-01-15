@@ -43,7 +43,15 @@ First Open Source Flutter based Beautiful Material Design Music Player(Online Ra
 
 ### Alert: iOS implementation
 
-This project is not implemented for ios yet.So wait for it or if you can contribute then please do help.
+This project is not implemented for ios yet. So wait for it or if you can contribute then please do help.
+
+## Installation
+
+Make sure you have Flutter installed. Then, clone the project and run:
+
+```bash
+flutter pub get
+```
 
 # Pull Requests
 
